@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-2.1.4.min.js"></script>
+
+    <title>练习循环</title>
+</head>
+<body>
+
+<div style="margin-top: 100px;margin-left: 200px">
+        <p>例1：请输入一个数字，将会打印这些数字：
+            <input type="text" id="num1" autofocus>
+            <input type="button" onclick="show1()" value="生成">
+        </p>
+        <p>例2：请输入一个数字，将会生成相应行数的正方形：
+            <input type="text" id="num2">
+            <input type="button" onclick="show2()" value="生成">
+        </p>
+        <p>例3：请输入一个数字，将会生成相应行数乘法表：
+            <input type="text" id="num3">
+            <input type="button" onclick="show3()" value="生成">
+        </p>
+</div>
+</body>
+<script>
+    function show1(){
+        var num1 = $("#num1").val();
+//        for(var i=0; i<=num1;i++){
+//            if(i != num1){
+//                document.write(i+"，")
+//            }else {
+//                document.write(i);
+//            }
+//        }
+
+        var i=0;
+//        while (i<=num1){
+//            document.write(i+"，");
+//            i++;
+//        }
+
+        do{
+            document.write(i+"，");
+            i++;
+        }while(i<=num1)
+
+
+    }
+
+
+
+    function show2(){
+        var num2 = $("#num2").val();
+
+        for (var i=0;i<num2;i++){
+            for(var j=0;j<num2;j++){
+                document.write("* ")
+            }
+            document.write("<br>")
+        }
+
+    }
+
+
+    function show3(){
+        var num3 =$("#num3").val();
+
+        for(var i=1;i<=num3;i++){
+            for(var j=1;j<=i;j++){
+                document.write(j +"*"+i +"="+i*j+"&nbsp;&nbsp;");
+            }
+            document.write("<br>");
+        }
+    }
+
+</script>
+
+</html>

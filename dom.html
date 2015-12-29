@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-2.1.4.min.js"></script>
+
+    <title>操作dom</title>
+</head>
+<body>
+
+<p id="p1">你好</p>
+
+<input type="button" onclick="create()" value="创建">
+<input type="button" onclick="edit()" value="修改">
+<input type="button" onclick="empty()" value="移除">
+
+
+</body>
+<script>
+    function create(){
+        $("<p id='p2'>我好</p>").appendTo($("body"));
+    }
+
+    function edit(){
+        $("#p1").html("大家好").css({"color":"green"});
+    }
+
+    function empty(){
+        $("#p2").remove();
+    }
+
+</script>
+</html>

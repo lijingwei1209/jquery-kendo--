@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>页面初始化</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        //下面是页面初始化onload函数
+        function load(){
+            $("p").append("<b>Hello</b>");
+        }
+        //下面是jQuery的代码
+        $(document).ready(function () {
+            $("p").append("<b>大家好</b>");
+        });
+
+        $(function(){
+            $("p").append("谢谢")
+        })
+    </script>
+</head>
+<body onload="load()">
+<p></p>
+</body>
+</html>

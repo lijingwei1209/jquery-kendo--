@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-2.1.4.min.js"></script>
+
+    <title>js对象</title>
+</head>
+<body>
+<p>例1：输入一个日期，告诉你星期几：<input type="date" id="myDate" onchange="showWeekday()"></p>
+
+<p>
+    例2：选择你要买的水果：
+    <input type="checkbox" name="fruit" value="苹果">苹果
+    <input type="checkbox" name="fruit" value="香蕉">香蕉
+    <input type="checkbox" name="fruit" value="桔子">桔子
+    <input type="checkbox" name="fruit" value="梨">梨
+    <input type="checkbox" name="fruit" value="桃">桃
+    <input type="checkbox" name="fruit" value="西瓜">西瓜
+    <input type="button" onclick="buy()" value="付款">
+</p>
+
+<p>例3：正则验证手机号：<input type="text" id="mobile" onclick="empty()">
+    <input type="button" onclick="checkMobile()" value="检查手机号">
+</p>
+
+<p id="p"></p>
+
+</body>
+<script>
+    function showWeekday(){
+        var myDate = $("#myDate").val();
+        var p = $("#p");
+        var weekday = new Date(myDate).getDay();
+        switch(weekday){
+            case 1:
+                p.html("今天周一");
+                break;
+            case 2:
+                p.html("今天周二");
+                break;
+            case 3:
+                p.html("今天周三");
+                break;
+            case 4:
+                p.html("今天周四");
+                break;
+            case 5:
+                p.html("今天周五");
+                break;
+            case 6:
+                p.html("今天周六");
+                break;
+            case 0:
+                p.html("今天周日");
+                break;
+         }
+
+    }
+
+
+    function buy(){
+        var fruit = $("input[name='fruit']");
+        var buyFruit = [];
+        for(var i=0;i<fruit.length;i++){
+            if(fruit[i].checked){
+                buyFruit.push(fruit[i].value);
+            }
+        }
+
+        console.log(buyFruit);
+        var str = "";
+        for(var i in buyFruit){
+            str += buyFruit[i]+"，"
+        }
+        $("#p").html("你买了"+str);
+    }
+
+
+    function  checkMobile(){
+        var mobile = $("#mobile").val();
+        var reg = /^1\d{10}$/;
+        if(!reg.test(mobile)){
+            $("#p").html("请输入有效手机号！");
+        }else{
+            $("#p").html("手机号正确");
+        }
+    }
+
+    function empty(){
+        $("#p").html("");
+    }
+</script>
+</html>
