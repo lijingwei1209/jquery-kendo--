@@ -6,7 +6,7 @@
     <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
         //下面是页面初始化onload函数
-        function load(){
+        window.onload = function(){
             $("p").append("<b>Hello</b>");
         }
         //下面是jQuery的代码
@@ -19,7 +19,7 @@
         })
     </script>
 </head>
-<body onload="load()">
+<body>
 <p></p>
 </body>
 </html>
